@@ -2,10 +2,11 @@ from prompt import Prompt
 
 template = [
     "Fixed text 1",
-    "THE STRING.variable1",
+    "variable1",
     "Fixed text 2",
-    "THE STRING.variable2",
-    "Fixed text 3"
+    "variable2",
+    "Fixed text 3",
+    "variable3"
 ]
 
 prompt = Prompt(template)

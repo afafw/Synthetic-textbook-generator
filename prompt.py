@@ -8,13 +8,14 @@ class Prompt:
         self.variable_current = []
         self.variable_maximum = []
         self.variable_dic = []
+        self.Finished=False
 
         for i, text in enumerate(template):
             if self._is_variable_text(text):
                 self.variable_places.append(i)
                 self.variable_current.append(0)
 
-                variable_name = text.split(".")[1]
+                variable_name = text
                 variable_text_file = f'constraint/{variable_name}.txt'
                 if not os.path.exists(variable_text_file):
                     raise Exception(f"Variable text file '{variable_text_file}' not found.")
@@ -26,11 +27,12 @@ class Prompt:
 
     @staticmethod
     def _is_variable_text(text):
-        variable_name = text.split(".")[1] if '.' in text else None
+        variable_name = text
         variable_text_file = f'constraint/{variable_name}.txt' if variable_name else None
         return os.path.exists(variable_text_file) if variable_name else None
 
     def iterate(self):
+        if self.Finished: return None
         prompt_parts = []
         last_variable_index = self.variable_places[-1] if self.variable_places else None
 
@@ -40,16 +42,16 @@ class Prompt:
                 prompt_parts.append(self.variable_dic[var_index][self.variable_current[var_index]])
 
                 if i == last_variable_index:
-                    for j in range(len(self.variable_places) - 1, -1, -1):
-                        self.variable_current[j] += 1
+                    j=len(self.variable_current)-1
+                    self.variable_current[j]+=1
+                    #print(j)
+                    while(j>=0 and self.variable_current[j]==self.variable_maximum[j]):
+                        self.variable_current[j]=0
+                        self.variable_current[j-1]+=1
+                        j-=1
+                        if (j==0 and self.variable_current[j]==self.variable_maximum[j]):
+                            self.Finished=True
 
-                        if self.variable_current[j] < self.variable_maximum[j]:
-                            break
-                        else:
-                            self.variable_current[j] = 0
-
-                            if j == 0:
-                                return None
             else:
                 prompt_parts.append(text)
 
