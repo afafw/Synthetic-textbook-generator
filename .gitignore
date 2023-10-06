@@ -1,4 +1,3 @@
-__pycache__/prompt.cpython-310.pyc
-.vscode/settings.json
-constraint/variable1.txt
-constraint/variable2.txt
+__pycache__
+.vscode
+constraint/*.txt
