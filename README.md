@@ -27,6 +27,11 @@ You also need to set your OpenAI API key and base URL as environment variables:
 export OPENAI_API_KEY="your_api_key_here"
 export OPENAI_API_BASE="https://api.openai.com"
 ```
+You also need to create folder for saving results and constraints:
+```bash
+mkdir constraint
+mkdir result
+```
 
 ### Step 2: Prepare Your Template and Variable Text Files
 

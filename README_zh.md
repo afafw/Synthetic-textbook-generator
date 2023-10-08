@@ -26,7 +26,11 @@ pip install -r requirements.txt
 export OPENAI_API_KEY="your_api_key_here"
 export OPENAI_API_BASE="https://api.openai.com"
 ```
-
+你还需要创建对应存储变量或者结果的文件夹
+```bash
+mkdir constraint
+mkdir result
+```
 ### 第 2 步：准备您的模板和可变文本文件
 
 该程序使用模板生成合成教材。模板是一个字符串列表，其中每个字符串要么是教材的固定部分，要么是可变文本的占位符。可变文本从名为 'constraint' 的目录中的文本文件中读取。每个可变文本文件应以占位符文本和 '.txt' 扩展名命名。

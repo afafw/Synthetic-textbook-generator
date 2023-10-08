@@ -1,0 +1,28 @@
+Breadth-First Search (BFS): This is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph) and explores the neighbor nodes at the present depth prior to moving on to nodes at the next depth level.
+Depth-First Search (DFS): This is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root (or some arbitrary node of a graph, sometimes referred to as a ‘search key’) and explores as far as possible along each branch before backtracking.
+Binary Search: This search algorithm works on the principle of divide and conquer. For this algorithm to work properly, the data collection should be in a sorted form.
+Merge Sort: This is an efficient, stable sorting algorith that makes use of the divide and conquer strategy. Conceptually, a merge sort works as follows: Divide the unsorted list into n sublists, each containing one element (a list of one element is considered sorted), then repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining.
+Quick Sort: This is a divide and conquer algorithm. It works by selecting a ‘pivot’ element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot.
+Insertion Sort: This is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted region. Values from the unsorted region are picked and placed at the correct position in the sorted region.
+Bubble Sort: This is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
+Selection Sort: This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end.
+NumPy: This library is used for numerical computations and has keywords like array, arange, zeros, ones, linspace, dot, reshape, transpose.
+Pandas: This library is used for data manipulation and analysis. Keywords include DataFrame, Series, read_csv, merge, concat, groupby.
+Matplotlib: This is a plotting library. Keywords include plot, show, figure, subplot, scatter, bar, pie.
+Scikit-learn: This is a machine learning library. Keywords include fit, predict, transform, score, train_test_split.
+Seaborn: This is a statistical data visualization library. Keywords include distplot, heatmap, boxplot.
+SciPy: This library is used for scientific and technical computing. Keywords include integrate, optimize.
+Requests: This library is used for making HTTP requests. Keywords include get, post.
+BeautifulSoup: This library is used for web scraping purposes to pull the data out of HTML and XML files. Keywords include BeautifulSoup, find_all.
+Tkinter: This library is used for creating GUI applications. Keywords include Tk, Label, Button.
+Flask: This is a web framework for Python. Keywords include ‘Flask’, ‘route’, ‘render_template’.
+Open: open(filename, mode) is used to open a file. The mode can be ‘r’ for read, ‘w’ for write, ‘a’ for append, ‘r+’ for both reading and writing.
+Read: file.read(size) is used to read the file. Size is an optional numeric argument.
+Write: file.write(string) writes a string to the file.
+Close: file.close() is used to close the file.
+Delete: os.remove(filename) is used to delete a file.
+List: A list in Python is a collection of items which can contain elements of multiple data types, which may be either numeric, character logical values, etc. It is an ordered collection supporting negative indexing.
+Tuple: A tuple is similar to a list but it is immutable, which means we cannot change the elements of a tuple once it is assigned.
+Set: A set in Python is mutable, unordered collection of unique elements enclosed within {}.
+Dictionary: A dictionary in Python is an unordered collection of data values that are used to store data values like a map. Unlike other Data Types that hold only single value as an element, Dictionary holds key:value pair.
+String: A string in Python is a sequence of characters.
