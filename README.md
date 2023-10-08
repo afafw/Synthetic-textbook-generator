@@ -80,3 +80,14 @@ The function clears the results after each batch to save memory.
 ### Step 4: Check the Results
 
 After the program finishes running, you can check the synthetic textbook in the 'textbook.parquet' file. You can also check the 'checkpoint.json' file to see the final indices of the variable text placeholders.
+
+
+
+### About example
+If you want to directly run the program to view the process about how the resulting example textbook is generated. Delete result/* and rename constraint/variable1.txt.example back to variable1.txt
+Do not forgot to setup requirement packages and environment variables.
+
+Than
+```bash
+python generator.py
+```

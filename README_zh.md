@@ -78,3 +78,11 @@ RATE_LIMIT_DELAY = 60 / MAX_BATCH_PER_MIN
 ### 第 4 步：检查结果
 
 程序运行完成后，您可以在 'textbook.parquet' 文件中检查合成教材。您还可以检查 'checkpoint.json' 文件以查看可变文本占位符的最终索引。
+
+### 关于示例
+如果你想直接运行程序查看生成示例教材的过程，请删除result/*并将constraint/variable1.txt.example改回variable1.txt。不要忘记安装所需的包和设置环境变量。
+
+然后运行以下命令：
+```bash
+python generator.py
+```
