@@ -2,6 +2,21 @@ import os
 
 
 class Prompt:
+    """
+    A class to generate text prompts based on a given template and a set of variable text files.
+    Remember that it can not deal with a sequence of string that do not have a variable constraint.
+    Attributes:
+        template (list): A list of strings representing the template with variable text placeholders.
+        variable_places (list): A list of indices in the template where variable text placeholders are found.
+        variable_current (list): A list of current indices for each variable text placeholder.
+        variable_maximum (list): A list of maximum indices for each variable text placeholder.
+        variable_dic (list): A list of lists containing the variable texts read from the corresponding text files.
+        finished (bool): A flag indicating if all possible combinations of variable texts have been exhausted.
+
+    Methods:
+        _is_variable_text(text): Checks if a given text is a variable text placeholder.
+        iterate(): Generates the next prompt by iterating through the variable texts.
+    """
     def __init__(self, template):
         self.template = template
         self.variable_places = []
@@ -47,10 +62,11 @@ class Prompt:
                     self.variable_current[j] += 1
                     while j >= 0 and self.variable_current[j] == self.variable_maximum[j]:
                         self.variable_current[j] = 0
-                        self.variable_current[j-1] += 1
+                        if j > 0:
+                            self.variable_current[j-1] += 1
                         j -= 1
-                        if j == 0 and self.variable_current[j] == self.variable_maximum[j]:
-                            self.finished = True
+                    if j < 0:
+                        self.finished = True
             else:
                 prompt_parts.append(text)
 
