@@ -1,8 +1,12 @@
 # Synthetic Textbook Generator
+[English](README.md) | [中文](README_zh.md)
 
 This program is designed to generate synthetic textbooks based on a given template and a set of variable text files. The program uses the OpenAI API to generate the content of the textbook.
 
-This repo is inspired by tinystories
+This repo is a simple scipt that might be able to reproduce synthetic textbook like phi or tinystories
+
+If anyone has a better template and constraints and expects to open-source the generated results, they can propose it in the issue, and I will generate it on their behalf if I had the time(and sufficient quota). You need to provide /constraint/*.txt and template.
+
 ## How to Use
 
 ### Step 1: Set Up Your Environment
@@ -19,14 +23,9 @@ pip install -r requirements.txt
 
 You also need to set your OpenAI API key and base URL as environment variables:
 
-```python
-openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_base = os.getenv("OPENAI_API_BASE")
-```
-
-
 ```bash
-
+export OPENAI_API_KEY="your_api_key_here"
+export OPENAI_API_BASE="https://api.openai.com"
 ```
 
 ### Step 2: Prepare Your Template and Variable Text Files
@@ -57,9 +56,10 @@ To run the program, you need to initialize the `Prompt` class with your template
 prompt_generator = Prompt(template)
 synthetic_textbook = generate_synthetic_textbook()
 ```
-Or modify the generator.py and simply
-```bash
+Or modify the `generator.py` and simply run:
 
+```bash
+python generator.py
 ```
 
 The `generate_synthetic_textbook` function generates the synthetic textbook and saves it to a Parquet file named 'textbook.parquet' in the 'result' directory. The function also saves a checkpoint to a JSON file named 'checkpoint.json' in the 'result' directory after processing a certain number of batches. The checkpoint contains the current indices of the variable text placeholders and can be used to resume the generation process if it is interrupted.
