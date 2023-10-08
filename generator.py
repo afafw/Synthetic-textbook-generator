@@ -120,17 +120,18 @@ def load_checkpoint():
 def generate_synthetic_textbook():
     results = []
     checkpoint_data = load_checkpoint()
-
     if checkpoint_data:
         prompt_generator.variable_current = checkpoint_data
-
     batch_count = 0
     max_file_size = 383 * 1024 * 1024  # Maximum file size in bytes
     parquet_file = "result/textbook.parquet"  # Initial Parquet file
 
     while not prompt_generator.finished:
-
         prompts = [prompt_generator.iterate() for _ in range(BATCH_SIZE)]
+        
+        # Filter out None prompts and stop if all prompts are None
+        prompts = [prompt for prompt in prompts if prompt is not None]
+
         process_batch(prompts, results)
 
         # Save results to the Parquet file
@@ -138,6 +139,8 @@ def generate_synthetic_textbook():
             parquet_file = write_to_parquet(result['content'], parquet_file, max_file_size)
 
         batch_count += 1
+        #print the batch that is processing
+        print(batch_count)
 
         # Save checkpoint after processing batches_for_checkpoint
         if batch_count % BATCHES_FOR_CHECKPOINT == 0:
